@@ -1,8 +1,8 @@
 {
   "name": "ebo-react-datatable",
-  "version": "0.1.0",
-  "description": "conversion of jquery 'DataTable' plugin to react for the last OpenClassroom project",
-  "main": "DataTablePlugin.js",
+  "version": "1.0.2",
+  "description": "conversion of jquery 'DataTable' plugin to react for the last OpenClassroom project 'HRnet'",
+  "main": "src/DataTablePlugin.js",
   "scripts": {
     	"test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,9 +13,21 @@
 	"datatable"
   ],
   "files": [
-	"DataTablePlugin.js",
-	"DataTablePlugin.css"
+	"/src",
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricBouillaut-Dev/plugin-react_datatable.git"
+  },
   "author": "Eric Bouillaut <[e.bouillaut@yahoo.fr](mailto:e.bouillaut@yahoo.fr)>",
-  "license": "ISC"
+  "license": "ISC",
+  "homepage": "https://github.com/EricBouillaut-Dev/plugin-react_datatable#readme",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
