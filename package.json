@@ -1,0 +1,21 @@
+{
+  "name": "ebo-react-datatable",
+  "version": "0.1.0",
+  "description": "conversion of jquery 'DataTable' plugin to react for the last OpenClassroom project",
+  "main": "DataTablePlugin.js",
+  "scripts": {
+    	"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    	"table",
+    	"array",
+    	"data",
+	"datatable"
+  ],
+  "files": [
+	"DataTablePlugin.js",
+	"DataTablePlugin.css"
+  ],
+  "author": "Eric Bouillaut <[e.bouillaut@yahoo.fr](mailto:e.bouillaut@yahoo.fr)>",
+  "license": "ISC"
+}
