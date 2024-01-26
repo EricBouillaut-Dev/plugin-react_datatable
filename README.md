@@ -1,26 +1,25 @@
+![Banner](banner.jpg)
+
 # DataTablePlugin
 
 DataTablePlugin is a custom React component, part of a project on the [OpenClassrooms Front-End learning path](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react).
 It's designed to display, sort, filter, paginate, and manage tabular data efficiently.
 
-**Example Usage**:
+![Table screenshot](screenshot.jpg)
 
-```jsx
-<DataTablePlugin data={data} columns={columns} />
-```
+## Prerequisites
+- [NodeJS (version 16.17.0)](https://nodejs.org/en/)
+- [NPM (version 9.4.0)](https://www.npmjs.com/)
+- [React (version 18.2.0)](https://react.dev/)
 
-✨ Features and Interface
-The component offers functionalities like sorting, searching, pagination, and error handling with an intuitive UI.
+## Getting started
 
-🚀 Installation as an npm package
-1 - install the package
-
+### Installation
 ```bash
-npm install ebo-react-datatable
+    npm install @ericbouillautdev/plugin-react-datatable
 ```
-
-2 - Import and use in your React project:
-
+   
+### Usage
 ```jsx
 import DataTablePlugin from 'ebo-react-datatable';
 import 'ebo-react-datatable/dist/DataTablePlugin.css';
@@ -30,7 +29,7 @@ const data = [{...}, {...}];
 const columns = [{ title: 'First Name', key: 'firstName' }, ...];
 
 function App() {
-    return <DataTablePlugin data={data} columns={columns} />;
+    return <DataTablePlugin data={data} columns={columns} dateFormat="yyyy-mm-dd" />;
 }
 ```
 
@@ -38,6 +37,18 @@ The DataTablePlugin component takes the following props:
 
 data: An array of objects representing the rows in the table.
 columns: An array of objects representing the columns in the table. Each object should have a title (the column header) and a key (the key in the data that this column should display).
+dateFormat: A string representing the format of the dates in the table. Default is 'dd/mm/yyyy'.
+  available formats:
+    'dd/mm/yyyy'
+    'mm/dd/yyyy'
+    'yyyy/mm/dd'
+    'dd-mm-yyyy'
+    'mm-dd-yyyy'
+    'yyyy-mm-dd'
+    'dd.mm.yyyy'
+    'mm.dd.yyyy'
+    'yyyy.mm.dd'
+    ISO --> (yyyy-mm-ddThh:mm:ss)
 
 exemple:
 
@@ -59,7 +70,7 @@ const users = [
     firstName: "Patrick",
     lastName: "Ward",
     dateOfBirth: "07/04/1987",
-    startDate: "12/28/2022",
+    startDate: "28/12/2022",
     department: "Finance",
     street: "160 Michael Garden",
     city: "Singhberg",
@@ -67,34 +78,11 @@ const users = [
     zipCode: "65578",
   },
 ];
-return <DataTablePlugin data={users} columns={columns} />;
+return <DataTablePlugin data={users} columns={columns} dateFormat="mm/dd/yyyy" />;
 ```
 
-🛠️ Setup and Development
-To set up and start developing:
-
-1 - Clone the repository:
-
-```bash
-git clone <repository-url>
-```
-
-2 - Install dependencies:
-
-```bash
-cd Front
-npm install
-```
-
-3 - Start the development server:
-
-```bash
-npm start
-```
-
-4 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The server will start on localhost:3000.
+✨ Features and Interface
+The component offers functionalities like sorting, searching and pagination with an intuitive UI.
 
 📝 License
 This project is licensed under the MIT License.

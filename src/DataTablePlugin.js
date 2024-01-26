@@ -16,6 +16,15 @@ const formatRegex = {
 };
 
 const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
+  // Check for valid dateFormat
+  if (
+    !dateFormat ||
+    typeof dateFormat !== "string" ||
+    dateFormat.trim() === ""
+  ) {
+    dateFormat = "dd/mm/yyyy";
+  }
+
   // State hooks for managing table data
   const [filteredItems, setFilteredItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
