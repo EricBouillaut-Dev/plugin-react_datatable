@@ -1,3 +1,15 @@
+/* Container for the Plugin */
+.plugin-container {
+  font-size: 1rem;
+  color: #000;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
 /* Container for the table */
 .item-table-container {
   font-size: 0.95rem;
@@ -23,6 +35,7 @@
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide text overflow */
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  color: #333; /* Text color for table cells */
 }
 
 /* Table header styles */
@@ -85,8 +98,10 @@
 }
 
 /* Hover effect on buttons */
-.bloc-nav button:hover {
-  background-color: #50505050;
+.bloc-nav button:hover,
+.bloc-nav button:focus {
+  background-color: #0056b3;
+  color: #fff;
 }
 
 /* Disabled state for buttons */
@@ -115,10 +130,29 @@
 /* Ensure visibility on all backgrounds */
 .bloc-nav button:disabled {
   background-color: #e1e1e1;
+  opacity: 0.65;
 }
 
 /* Style for active pagination button */
 .bloc-nav button.active {
   background-color: #007bff;
-  color: white;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Style outline on input for better accessibility */
+.page-size-selector select:focus,
+.search-box input:focus,
+.bloc-nav button:focus {
+  outline: 2px solid #0056b3;
+}
+
+/* Styles for better accessibility */
+.item-table th,
+.item-table td,
+.page-size-selector select,
+.search-box input,
+.bloc-nav button {
+  font-size: 1rem;
+  padding: 10px;
 }

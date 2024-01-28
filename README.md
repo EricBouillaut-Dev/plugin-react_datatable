@@ -1,11 +1,11 @@
-![Banner](banner.jpg)
+![Banner](https://github.com/EricBouillaut-Dev/plugin-react_datatable/blob/master/banner.jpg)
 
 # DataTablePlugin
 
-DataTablePlugin is a custom React component, part of a project on the [OpenClassrooms Front-End learning path](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react).
-It's designed to display, sort, filter, paginate, and manage tabular data efficiently.
+DataTablePlugin is a custom React component, part of the last project on the [OpenClassrooms Front-End learning path](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react).
+It's designed to display, sort, filter, paginate, manage tabular data efficiently and publish it as a NPM package.
 
-![Table screenshot](screenshot.jpg)
+![Table screenshot](https://github.com/EricBouillaut-Dev/plugin-react_datatable/blob/master/screenshot.jpg)
 
 ## Prerequisites
 - [NodeJS (version 16.17.0)](https://nodejs.org/en/)
@@ -16,13 +16,13 @@ It's designed to display, sort, filter, paginate, and manage tabular data effici
 
 ### Installation
 ```bash
-    npm install @ericbouillautdev/plugin-react-datatable
+    npm install ebo-react-datatable
 ```
    
 ### Usage
 ```jsx
 import DataTablePlugin from 'ebo-react-datatable';
-import 'ebo-react-datatable/dist/DataTablePlugin.css';
+import 'ebo-react-datatable/src/DataTablePlugin.css';
 
 // Define data and columns
 const data = [{...}, {...}];
@@ -70,7 +70,7 @@ const users = [
     firstName: "Patrick",
     lastName: "Ward",
     dateOfBirth: "07/04/1987",
-    startDate: "28/12/2022",
+    startDate: "12/28/2022",
     department: "Finance",
     street: "160 Michael Garden",
     city: "Singhberg",

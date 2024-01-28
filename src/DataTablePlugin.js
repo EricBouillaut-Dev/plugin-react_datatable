@@ -1,5 +1,10 @@
+import {
+  faSort,
+  faSortDown,
+  faSortUp,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import "./DataTablePlugin.css";
 
 // Regular expressions for date formats
 const formatRegex = {
@@ -149,19 +154,27 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
   const renderHeader = useCallback(
     () =>
       columns.map((column) => (
-        <th key={column.data} onClick={() => handleSort(column.data)}>
-          {column.title}
+        <th
+          key={column.data}
+          onClick={() => handleSort(column.data)}
+          role="columnheader"
+        >
+          {column.title}{" "}
           {sortField === column.data ? (
-            <i
-              className={`fas fa-sort-${sortOrder === "asc" ? "up" : "down"}`}
-            ></i>
+            <FontAwesomeIcon
+              icon={sortOrder === "asc" ? faSortUp : faSortDown}
+              aria-hidden="true"
+            />
           ) : (
-            <i className="fas fa-sort"></i>
+            <FontAwesomeIcon icon={faSort} aria-hidden="true" />
           )}
         </th>
       )),
     [columns, sortField, sortOrder, handleSort]
   );
+
+  const baseColumnWidth = 150; // Base column width in pixels
+  const maxWidth = columns.length * baseColumnWidth;
 
   // Function to render pagination buttons
   const renderPaginationButtons = useCallback(() => {
@@ -206,13 +219,14 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
 
   // Main component rendering
   return (
-    <>
+    <div className="plugin-container" style={{ maxWidth: `${maxWidth}px` }}>
       <div className="search-and-size">
         <div className="page-size-selector">
           Show
           <select
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}
+            aria-label="Page size selector"
           >
             {pageSizeOptions.map((size) => (
               <option key={size} value={size}>
@@ -229,11 +243,12 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
             id="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            aria-label="Search box"
           />
         </div>
       </div>
       <div className="item-table-container">
-        <table className="item-table">
+        <table className="item-table" role="grid">
           <thead>
             <tr>{renderHeader()}</tr>
           </thead>
@@ -241,7 +256,10 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
             {itemsToShow.map((item, index) => (
               <tr key={item.id || `itemId-${index}`}>
                 {columns.map((column) => (
-                  <td key={`${item.id || `itemId-${index}`}-${column.data}`}>
+                  <td
+                    key={`${item.id || `itemId-${index}`}-${column.data}`}
+                    role="gridcell"
+                  >
                     {item[column.data]}
                   </td>
                 ))}
@@ -256,10 +274,11 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
           {Math.min(filteredItems.length, (currentPage + 1) * pageSize)} of{" "}
           {filteredItems.length} entries
         </p>
-        <div className="bloc-nav">
+        <div className="bloc-nav" role="navigation">
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 0}
+            aria-label="Previous page"
           >
             Previous
           </button>
@@ -267,12 +286,13 @@ const DataTablePlugin = React.memo(({ data, columns, dateFormat }) => {
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             disabled={currentPage >= pageCount - 1}
+            aria-label="Next page"
           >
             Next
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 });
 

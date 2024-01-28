@@ -1,31 +1,48 @@
 {
   "name": "ebo-react-datatable",
-  "version": "1.0.2",
-  "description": "conversion of jquery 'DataTable' plugin to react for the last OpenClassroom project 'HRnet'",
-  "main": "src/DataTablePlugin.js",
+  "version": "1.0.12",
+  "description": "Conversion of jQuery 'DataTable' plugin to React for the last OpenClassroom project 'HRnet'",
+  "main": "dist/DataTablePlugin.js",
   "scripts": {
-    	"test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    	"table",
-    	"array",
-    	"data",
-	"datatable"
+    "react",
+    "plugin",
+    "table",
+    "array",
+    "data",
+    "datatable"
   ],
   "files": [
-	"/src",
+    "dist",
+    "src/DataTablePlugin.css"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EricBouillaut-Dev/plugin-react_datatable.git"
+    "url": "https://github.com/EricBouillaut-Dev/plugin-react_datatable.git"
   },
-  "author": "Eric Bouillaut <[e.bouillaut@yahoo.fr](mailto:e.bouillaut@yahoo.fr)>",
+  "author": "Eric Bouillaut <e.bouillaut@yahoo.fr>",
   "license": "ISC",
   "homepage": "https://github.com/EricBouillaut-Dev/plugin-react_datatable#readme",
+  "bugs": {
+    "url": "https://github.com/EricBouillaut-Dev/plugin-react_datatable/issues"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0"
   }
 }
